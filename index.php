@@ -7,19 +7,22 @@ $databaseFilm = [
         "title" => "Il pianeta delle scimmie",
         "description" => "Ci sono un casino di scimmie, tante, tatissime scimmie!",
         "author" => "Silvia Canepa",
-        "img" => "https://pad.mymovies.it/filmclub/2010/04/037/locandina.jpg"
+        "img" => "https://pad.mymovies.it/filmclub/2010/04/037/locandina.jpg",
+        "annoUscita" => "1980",
     ],
     [
         "title" => "La scoperta dell'acqua calda",
         "description" => "3 magnifici ragazzi scoprono l'acqua calda, in mezzo ad un giume di acqua calda",
         "author" => "Biagio Ferro",
-        "img" => "https://itcsrl.biz/wp-content/uploads/2017/07/acqua-calda-sanitaria-1-750x500.jpg"
+        "img" => "https://itcsrl.biz/wp-content/uploads/2017/07/acqua-calda-sanitaria-1-750x500.jpg",
+        "annoUscita" => "1990",
     ],
     [
         "title" => "La vendetta di Florian",
         "description" => "Florian si ribella alla classe lanciando righe di codice php alla velocità della luce",
         "author" => "Florian Leica",
-        "img" => "https://m.media-amazon.com/images/I/81TKzIJd3xL._SL1325_.jpg"
+        "img" => "https://m.media-amazon.com/images/I/81TKzIJd3xL._SL1325_.jpg",
+        "annoUscita" => "1998",
     ]
 ];
 
@@ -44,7 +47,7 @@ $databaseFilm = [
     <div class="container py-5">
         <div class="row">
             <?php foreach ($databaseFilm as $film) {
-                $print = new Movie($film["title"], $film["description"], $film["author"]);
+                $print = new Movie($film["title"], $film["description"], $film["author"],$film["annoUscita"]);
 
             ?>
                 <div class="col">
@@ -53,8 +56,8 @@ $databaseFilm = [
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $print->getTitle() ?></h5>
                             <p class="card-text"><?php echo $print->getDescription() ?></p>
-                            <p class="card-text"><?php echo $print->getAuthor() ?></p>
-                            
+                            <p class="card-text">Autore: <?php echo $print->getAuthor() ?></p>
+                            <span>Mandato in onda <?php echo $print->generateTimeDistance($print->getYear()) ?> anni fa.</span>
                         </div>
                     </div>
                     
